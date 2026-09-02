@@ -1,59 +1,151 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+<div align="center">
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+# 🍽️ Dapurwarga
 
-## About Laravel
+**Platform jual-beli kuliner & UMKM warga berbasis komunitas.**
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+Dibangun dengan [Laravel 12](https://laravel.com) dan [MySQL](https://www.mysql.com/) (via XAMPP).
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+</div>
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+---
 
-## Learning Laravel
+## Tentang Dapurwarga
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework. You can also check out [Laravel Learn](https://laravel.com/learn), where you will be guided through building a modern Laravel application.
+**Dapurwarga** adalah platform web yang menghubungkan para pelaku **UMKM kuliner** dengan warga sekitar. Website ini memungkinkan penjual (seller) untuk menampilkan dan menjual produk mereka, sementara admin & superadmin mengelola jalannya platform agar tetap tertib dan terpercaya.
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+Tujuan utama Dapurwarga adalah mendukung **ekonomi lokal** dengan mempermudah warga menemukan dan membeli produk kuliner dari lingkungan mereka sendiri.
 
-## Laravel Sponsors
+## Fitur Utama
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+- 🛒 **Toko online kuliner/UMKM** — penjual dapat menampilkan produk mereka.
+- 👥 **Sistem peran (Role) pengguna**:
+  - **Superadmin** — kendali penuh atas platform.
+  - **Admin** — mengelola data dan operasional harian.
+  - **Seller** — mengelola produk dan penjualan.
+- 🔐 **Autentikasi & registrasi pengguna** — login dan daftar akun.
+- 🖥️ **Dashboard terpisah** untuk setiap peran (superadmin, admin, seller).
+- 🗄️ **Manajemen data** memakai Eloquent ORM dan migrasi `Laravel`.
 
-### Premium Partners
+## Teknologi yang Digunakan
 
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
+| Teknologi | Fungsi |
+|-----------|--------|
+| [Laravel 12](https://laravel.com) | Framework web (PHP) |
+| PHP 8.2 | Bahasa pemrograman |
+| MySQL (XAMPP) | Basis data |
+| Blade | Template engine |
+| Vite | Bundling aset (CSS/JS) |
 
-## Contributing
+## Persyaratan
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+- PHP 8.2+
+- [XAMPP](https://www.apachefriends.org/) (Apache + MySQL) atau server MySQL
+- [Composer](https://getcomposer.org/)
+- [Node.js + npm](https://nodejs.org/) (untuk Vite, opsional)
 
-## Code of Conduct
+## Cara Menjalankan di Lokal
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+1. **Kloning repositori**
 
-## Security Vulnerabilities
+   ```bash
+   git clone https://github.com/kerenmisael07-hub/dapurwarga.git
+   cd dapurwarga
+   ```
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+2. **Install dependency**
 
-## License
+   ```bash
+   composer install
+   npm install
+   ```
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+3. **Aktifkan MySQL (Apache & MySQL di XAMPP)**
+
+   Buka **XAMPP Control Panel**, lalu klik **Start** pada **Apache** dan **MySQL**.
+
+4. **Buat database**
+
+   Buka [phpMyAdmin](http://localhost/phpmyadmin) (atau jalankan perintah MySQL):
+
+   ```sql
+   CREATE DATABASE dapurwarga;
+   ```
+
+   Atau lewat baris perintah:
+
+   ```bash
+   mysql -u root -e "CREATE DATABASE dapurwarga"
+   ```
+
+   Jika ada error `could not find driver` atau `Table doesn't exist in engine`, coba bersihkan folder database lalu `DROP DATABASE` & buat ulang (lihat catatan di bawah).
+
+5. **Konfigurasi `.env`**
+
+   Salin `.env.example` menjadi `.env`, lalu sesuaikan pengaturan database:
+
+   ```bash
+   cp .env.example .env
+   ```
+
+   Contoh konfigurasi MySQL (XAMPP):
+
+   ```env
+   DB_CONNECTION=mysql
+   DB_HOST=127.0.0.1
+   DB_PORT=3306
+   DB_DATABASE=dapurwarga
+   DB_USERNAME=root
+   DB_PASSWORD=
+   ```
+
+   > ⚠️ File `.env` **tidak di-push** ke GitHub karena berisi konfigurasi rahasia. Buat sendiri saat men-deploy.
+
+4. **Generate key aplikasi**
+
+   ```bash
+   php artisan key:generate
+   ```
+
+5. **Jalankan migrasi database**
+
+   ```bash
+   php artisan migrate
+   ```
+
+   > **Catatan penting**: Jika menemukan error seperti **`could not find driver`** atau **`Table '...' doesn't exist in engine`**:
+   >
+   > - Pastikan ekstensi `pdo_mysql` aktif di `php.ini` (`extension=pdo_mysql`).
+   > - Hentikan PHP server yang berjalan, lalu mulai ulang dengan `php artisan serve`.
+   > - Jika database rusak/korup, hapus folder `C:\xampp\mysql\data\dapurwarga`, buat ulang database `dapurwarga`, lalu jalankan `php artisan migrate` lagi.
+
+6. **Jalankan server**
+
+   ```bash
+   php artisan serve
+   ```
+
+   Lalu buka `http://127.0.0.1:8000` di browser.
+
+## Struktur Direktori
+
+```
+app/
+├─ Http/Controllers/
+│  └─ Auth/            # Login & Register
+├─ Models/
+├─ Providers/
+config/                # Konfigurasi aplikasi
+database/              # Migrasi & seeder
+public/                # Entry point (index.php)
+resources/views/
+├─ auth/               # Halaman login & register
+├─ superadmin/         # Dashboard superadmin
+├─ admin/              # Dashboard admin
+├─ seller/             # Dashboard seller
+routes/                # Definisi rute
+```
+
+## Lisensi
+
+Proyek ini dibangun di atas [Laravel](https://laravel.com) yang dilisensikan di bawah [MIT license](https://opensource.org/licenses/MIT).
