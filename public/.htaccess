@@ -1,3 +1,9 @@
+<IfModule mod_php.c>
+    # Foto dari HP sering di atas 2 MB, jadi batas upload dinaikkan.
+    php_value upload_max_filesize 8M
+    php_value post_max_size 20M
+</IfModule>
+
 <IfModule mod_rewrite.c>
     <IfModule mod_negotiation.c>
         Options -MultiViews -Indexes

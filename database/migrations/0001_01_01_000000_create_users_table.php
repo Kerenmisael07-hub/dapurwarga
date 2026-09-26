@@ -17,8 +17,9 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
-            // Kolom role untuk hak akses multi-tingkat (superadmin, admin, seller)
-            $table->enum('role', ['superadmin', 'admin', 'seller'])->default('seller');
+            // Kolom role untuk hak akses multi-tingkat (superadmin, admin, seller, layanan)
+            $table->enum('role', ['superadmin', 'admin', 'seller', 'layanan'])->default('seller');
+            $table->enum('kategori_layanan', ['servis', 'makanan'])->nullable();
             $table->rememberToken();
             $table->timestamps();
         });

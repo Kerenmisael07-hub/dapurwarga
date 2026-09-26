@@ -11,6 +11,12 @@
     @else
         <script src="https://cdn.tailwindcss.com"></script>
     @endif
+    <style>
+        .role-card:has(input:checked) {
+            border-color: #f97316;
+            background-color: #fff7ed;
+        }
+    </style>
 </head>
 <body class="min-h-screen bg-gray-50 flex items-center justify-center px-4">
     <div class="w-full max-w-md">
@@ -32,6 +38,48 @@
 
             <form method="POST" action="{{ route('register.post') }}">
                 @csrf
+
+                <div class="mb-5">
+                    <label class="block text-sm font-medium text-gray-700 mb-2">Daftar Sebagai</label>
+                    <div class="grid grid-cols-2 gap-3">
+                        <label class="role-card relative cursor-pointer rounded-lg border-2 border-gray-200 p-3 text-center transition hover:border-orange-300">
+                            <input type="radio" name="role" value="seller" class="sr-only role-input" {{ old('role', 'seller') === 'seller' ? 'checked' : '' }} onchange="toggleLapakFields()">
+                            <span class="text-sm font-semibold text-gray-700">Seller</span>
+                            <p class="text-xs text-gray-400 mt-1">Jual makanan</p>
+                        </label>
+                        <label class="role-card relative cursor-pointer rounded-lg border-2 border-gray-200 p-3 text-center transition hover:border-orange-300">
+                            <input type="radio" name="role" value="layanan" class="sr-only role-input" {{ old('role') === 'layanan' ? 'checked' : '' }} onchange="toggleLapakFields()">
+                            <span class="text-sm font-semibold text-gray-700">Layanan</span>
+                            <p class="text-xs text-gray-400 mt-1">Buka jasa layanan</p>
+                        </label>
+                    </div>
+                </div>
+
+                <div id="lapak-fields">
+                    <div class="mb-5">
+                        <label for="nama_lapak" class="block text-sm font-medium text-gray-700 mb-1">Nama Lapak</label>
+                        <input
+                            type="text"
+                            id="nama_lapak"
+                            name="nama_lapak"
+                            value="{{ old('nama_lapak') }}"
+                            class="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-orange-500 outline-none transition"
+                            placeholder="contoh: Lapak Bu Siti"
+                        >
+                    </div>
+
+                    <div class="mb-5">
+                        <label for="no_wa" class="block text-sm font-medium text-gray-700 mb-1">Nomor WhatsApp (untuk menerima pesanan)</label>
+                        <input
+                            type="text"
+                            id="no_wa"
+                            name="no_wa"
+                            value="{{ old('no_wa') }}"
+                            class="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-orange-500 outline-none transition"
+                            placeholder="contoh: 081234567890"
+                        >
+                    </div>
+                </div>
 
                 <div class="mb-5">
                     <label for="name" class="block text-sm font-medium text-gray-700 mb-1">Nama</label>
@@ -98,5 +146,13 @@
             </p>
         </div>
     </div>
+
+<script>
+        function toggleLapakFields() {
+            const isLayanan = document.querySelector('input[name="role"]:checked')?.value === 'layanan';
+            document.getElementById('lapak-fields').style.display = isLayanan ? 'none' : 'block';
+        }
+        toggleLapakFields();
+    </script>
 </body>
 </html>

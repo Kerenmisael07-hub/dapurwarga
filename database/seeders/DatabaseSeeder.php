@@ -31,6 +31,12 @@ class DatabaseSeeder extends Seeder
                 'email' => 'seller@dapurwarga',
                 'role' => 'seller',
             ],
+            [
+                'name' => 'Layanan',
+                'email' => 'layanan@dapurwarga',
+                'role' => 'layanan',
+                'kategori_layanan' => 'servis',
+            ],
         ];
 
         foreach ($users as $user) {
@@ -39,6 +45,7 @@ class DatabaseSeeder extends Seeder
                 [
                     'name' => $user['name'],
                     'role' => $user['role'],
+                    'kategori_layanan' => $user['kategori_layanan'] ?? null,
                     'password' => 'password',
                     'email_verified_at' => now(),
                 ],
