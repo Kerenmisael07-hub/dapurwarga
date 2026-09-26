@@ -229,8 +229,7 @@
                     @forelse ($menus as $index => $menu)
                         @php
                             $sellerName = $menu->seller->name ?? 'Warga';
-                            $wa = $menu->seller->no_wa ? preg_replace('/[^0-9]/', '', $menu->seller->no_wa) : '';
-                            $waUrl = 'https://wa.me/' . $wa . '?text=' . rawurlencode('Halo, saya ingin memesan ' . $menu->name . ' dari ' . $sellerName . ' via DapurWarga.');
+                            $waUrl = $menu->seller->whatsappUrl('Halo, saya ingin memesan '.$menu->name.' dari '.$sellerName.' via DapurWarga.');
                         @endphp
 
                         <!-- SIMPLE CARD -->

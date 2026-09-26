@@ -64,6 +64,28 @@ class User extends Authenticatable
         return $this->hasMany(Order::class, 'user_id');
     }
 
+    public function whatsappNumber(): string
+    {
+        $number = preg_replace('/[^0-9]/', '', (string) $this->no_wa);
+
+        if (str_starts_with($number, '0')) {
+            return '62'.substr($number, 1);
+        }
+
+        if (str_starts_with($number, '8')) {
+            return '62'.$number;
+        }
+
+        return $number;
+    }
+
+    public function whatsappUrl(string $message): string
+    {
+        $number = $this->whatsappNumber();
+
+        return $number ? 'https://wa.me/'.$number.'?text='.rawurlencode($message) : '#';
+    }
+
     /**
      * Foto profil selalu disimpan di public/uploads, jadi path relatifnya
      * diubah jadi URL. Kalau kosong, null (dipakai fallback inisial).

@@ -30,6 +30,8 @@ class DatabaseSeeder extends Seeder
                 'name' => 'Seller',
                 'email' => 'seller@dapurwarga',
                 'role' => 'seller',
+                'nama_lapak' => 'Dapur Keren',
+                'no_wa' => '081356733258',
             ],
             [
                 'name' => 'Layanan',
@@ -46,6 +48,8 @@ class DatabaseSeeder extends Seeder
                     'name' => $user['name'],
                     'role' => $user['role'],
                     'kategori_layanan' => $user['kategori_layanan'] ?? null,
+                    'nama_lapak' => $user['nama_lapak'] ?? null,
+                    'no_wa' => $user['no_wa'] ?? null,
                     'password' => 'password',
                     'email_verified_at' => now(),
                 ],

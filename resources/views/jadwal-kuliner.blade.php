@@ -90,8 +90,7 @@
                             <div class="mt-auto pt-4 flex justify-between items-center border-t border-surface-variant">
                                 <span class="font-headline-md text-headline-md text-primary">Rp {{ number_format($menu->price, 0, ',', '.') }}</span>
                                 @php
-                                    $wa = $menu->seller->no_wa ? preg_replace('/[^0-9]/', '', $menu->seller->no_wa) : '';
-                                    $waUrl = 'https://wa.me/' . $wa . '?text=' . rawurlencode('Halo, saya ingin memesan ' . $menu->name . ' dari ' . $menu->seller->name . ' di DapurWarga.');
+                                    $waUrl = $menu->seller->whatsappUrl('Halo, saya ingin memesan '.$menu->name.' dari '.$menu->seller->name.' di DapurWarga.');
                                 @endphp
                                 <a href="{{ $waUrl }}" target="_blank" class="press-anim flex items-center gap-1 bg-secondary text-on-secondary px-4 py-2 rounded font-label-md text-label-md hover:opacity-90 transition-opacity">
                                     <span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">chat</span>
