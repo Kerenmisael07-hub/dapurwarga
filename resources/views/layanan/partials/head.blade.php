@@ -1,0 +1,1 @@
+@include('partials.dashboard-head', ['title' => $title ?? 'Dashboard Layanan'])

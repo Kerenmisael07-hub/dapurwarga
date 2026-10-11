@@ -26,6 +26,16 @@ class LoginController extends Controller
             $request->session()->regenerate();
             $user = Auth::user();
 
+            if (! $user->is_active) {
+                Auth::logout();
+                $request->session()->invalidate();
+                $request->session()->regenerateToken();
+
+                return back()->withErrors([
+                    'email' => 'Akun kamu sedang dinonaktifkan oleh Admin.',
+                ])->onlyInput('email');
+            }
+
             // Pengalihan halaman (Redirect) otomatis berdasarkan role user
             if ($user->role === 'superadmin') {
                 return redirect()->intended('/superadmin/dashboard');

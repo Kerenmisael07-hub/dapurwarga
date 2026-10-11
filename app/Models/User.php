@@ -27,6 +27,7 @@ class User extends Authenticatable
         'nama_lapak',
         'no_wa',
         'lapak_buka',
+        'is_active',
         'foto_profile',
     ];
 
@@ -51,12 +52,28 @@ class User extends Authenticatable
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
             'lapak_buka' => 'boolean',
+            'is_active' => 'boolean',
         ];
     }
 
     public function menus()
     {
         return $this->hasMany(Menu::class, 'user_id');
+    }
+
+    public function services()
+    {
+        return $this->hasMany(Service::class, 'user_id');
+    }
+
+    public function serviceOptions()
+    {
+        return $this->hasMany(ServiceOption::class, 'user_id');
+    }
+
+    public function serviceOrders()
+    {
+        return $this->hasMany(ServiceOrder::class, 'user_id');
     }
 
     public function orders()

@@ -5,15 +5,9 @@
         'pesanan' => ['route' => 'seller.pesanan.index', 'icon' => 'receipt_long', 'label' => 'Riwayat Pesanan'],
         'pengaturan' => ['route' => 'seller.pengaturan.edit', 'icon' => 'settings', 'label' => 'Pengaturan'],
     ];
+    $navTitle = $navItems[$active ?? 'dashboard']['label'] ?? 'Dashboard';
 @endphp
-<header class="md:hidden bg-surface-container-lowest border-b border-outline-variant px-margin-mobile py-4 flex items-center justify-between z-20 sticky top-0">
-    <div class="text-headline-md font-headline-md font-bold text-primary flex items-center gap-2">
-        DapurWarga
-    </div>
-    <button class="text-on-surface" onclick="document.getElementById('mobileNav').classList.toggle('hidden')">
-        <span class="material-symbols-outlined">menu</span>
-    </button>
-</header>
+@include('partials.dashboard-header', ['title' => $navTitle, 'mobileNavId' => 'mobileNav'])
 <div id="mobileNav" class="md:hidden hidden bg-surface-container-lowest border-b border-outline-variant px-margin-mobile py-4 flex flex-col gap-2">
     @foreach ($navItems as $key => $item)
         <a class="flex items-center gap-3 px-4 py-3 rounded-lg font-label-md text-label-md {{ ($active ?? 'dashboard') === $key ? 'bg-primary-container text-on-primary-container' : 'text-on-surface-variant hover:bg-surface-container' }}" href="{{ route($item['route']) }}">

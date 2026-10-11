@@ -32,7 +32,7 @@
                 </div>
 
                 <h1 class="max-w-2xl text-4xl sm:text-5xl font-bold text-slate-950 leading-[1.08] tracking-tight">
-                    Kuliner Buatan Tetangga, Diantar Langsung.
+                    Kuliner Buatan Kita, Diantar/Diambil.
                 </h1>
 
                 <p class="text-base text-slate-600 leading-relaxed max-w-xl">
